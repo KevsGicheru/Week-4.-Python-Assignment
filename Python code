@@ -1,0 +1,18 @@
+def modify_content(content):
+    # Example modification: convert text to lowercase
+    return content.lower()
+
+filename = input(" My Code")
+
+try:
+    with open(filename, 'r') as infile:
+        content = infile.read()
+        modified = modify_content(content)
+    new_filename = "modified_" + filename
+    with open(new_filename, 'w') as outfile:
+        outfile.write(modified)
+    print(f"Modified content written to {new_filename}")
+except FileNotFoundError:
+    print("Error: File not found.")
+except IOError:
+    print("Error: Could not read the file.")
